@@ -8,6 +8,7 @@
 # git add .
 # git commit -m "first commit"
 # git push --set-upstream origin test
+# git log
 # git checkout main
 # git merge test
 # git status
