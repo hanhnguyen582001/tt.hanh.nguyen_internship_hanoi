@@ -14,4 +14,4 @@
 # git status
 # git branch test2
 # git branch - d test2
-# git fetch origin
+# git fetch 
