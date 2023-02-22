@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # tt.hanh.nguyen_internship_hanoi
 # cd tt.hanh.nguyen_internship_hanoi
 # git config --global user.name "hanhnguyen582001"
@@ -14,4 +15,6 @@
 # git status
 # git branch test2
 # git branch - d test2
-# git fetch 
+=======
+# tt.hanh.nguyen_internship_hanoi
+>>>>>>> main
