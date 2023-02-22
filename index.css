@@ -159,7 +159,7 @@ a{
     display: flex;
 }
 .news__list{
-    width: 235px;
+    width: 235px !important;
     border-right: 1px solid #f2f2f2;
     margin-right: 15px;
     display: flex;
@@ -176,15 +176,27 @@ a{
     font-weight: 400;
     display: block;
 }
-.news__item{
-    display: flex;
-}
 .new__list-item:hover{
     color: #ed1c24 !important;
     cursor: pointer;
 }
-.news__item{
+.new__item-first{
+    display: flex;
     width: 100%-235px;
+}
+.new__item-first img{
+    width: 379px;
+    cursor: pointer;
+}
+.news__item-des{
+    padding-left: 15px;
+    padding-top: 5px;
+}
+.news__item-des a{
+     
+}
+.news__item-des a:hover{
+    color: #ed1c24 !important;
 }
 .main__pc{
     width: 315px;
