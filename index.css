@@ -1,31 +1,50 @@
+@import url(./global.css);
+@import url(./resposive.css);
 *{
     box-sizing: border-box;
     word-wrap: normal;
+    
+}
+.content img{
+    cursor: pointer;
+    width: 100%;
+    object-fit: cover;
 }
 .header{
     min-height: 82px;
 }
 .header__top{
-    background: linear-gradient(90.13deg,#e30e16 18.76%,#c90009 96.9%);
-    
-    padding-left: 50px ;
-    padding-right: 50px;
+    background: var(--header__top-color);
 }
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-@media (max-width: 1350px){
-.container {
-    width: 1200px !important;
-}
+.header__top .row>*{
+  height: 48px;
+  display: flex;
+  align-items: center;
 }
 .header__logo{
-
+    cursor: pointer;
 }
-.header__top-left{
-
+.header__top-link{
+  color: white;
+  font-size: 14px;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: 0 8px;
+  border-right: 1px solid var(--top__lick-border);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+}
+.header__top-link i{
+    margin-right: 5px;
+}
+.header__search{
+    margin-left: 12px;
+}
+.header__avatar{
+    margin-right: 12px;
 }
 .header__top-right{
     display: flex;
@@ -43,13 +62,6 @@ ul{
     margin-bottom: auto;
     font-size: 14px;
 
-}
-.header__clink{
-    color: white !important;
-    display: flex;
-    padding: 0 8px;
-    border-right: 1px solid #ed1c24;
-    font-weight: 500;
 }
 a:not([href]):not([tabindex]) {
     color: black;
@@ -111,17 +123,16 @@ input{
     padding: 4px 16px;
     margin-left: 20px;
     font-weight: 500;
-    height: 27px;
 }
 .btn-register:hover{
     cursor: pointer;
 }
-.header__bot{
+.header__bottom{
     box-shadow: 0 4px 20px rgb(0 0 0 / 5%);
     background: #fff;
 }
 .menu-nav{
-    color: white;
+    color: #222;
     display: flex;
 }
 a{
@@ -130,6 +141,9 @@ a{
 }
 .menu-nav a:hover{
     color: black;
+}
+.navbar{
+    padding: 0;
 }
 .nav-link{
     padding: 8px 0;
@@ -141,63 +155,85 @@ a{
     align-items: center;
     padding-right: 20.4px;
 }
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+}
+
 @media (min-width: 1200px)
 {
 .container {
     max-width: 1420px;
 }
 }
-.main{
+.content{
     padding-top: 24px;
-    height: calc(100vh - 82px);
+    height: calc(100vh - 200px);
 }
-.main-flex{
-    display: flex;
-}
-.main__news{
-    width: calc(100% - 315px);
-    display: flex;
-}
-.news__list{
-    width: 235px !important;
+.content__list{
+    width: 235px;
     border-right: 1px solid #f2f2f2;
     margin-right: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
 }
-
-.new__list-item{
+.wheather{
+    padding-bottom: 8px;
+    margin-right: 15px;
+    border-top: none !important;
+    cursor:default !important;
+    font-weight: 700 !important;
+    
+}
+.content__list-item{
     border-top: 1px dashed #d9d9d9;
     padding: 11px 0;
+    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: #404040;
-    font-weight: 400;
-    display: block;
-}
-.new__list-item:hover{
-    color: #ed1c24 !important;
+    color: #565656;
+    margin-bottom: 4px;
     cursor: pointer;
 }
-.new__item-first{
+.main__news{
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f2f2f2;
     display: flex;
-    width: 100%-235px;
 }
-.new__item-first img{
-    width: 379px;
+.main__news-title{
+    font-size: 22px;
+    line-height: 28px;
+    color: #222;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 24px;
     cursor: pointer;
 }
-.news__item-des{
-    padding-left: 15px;
-    padding-top: 5px;
+.main__news-des{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
 }
-.news__item-des a{
-     
+.news__related-title{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #222;
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
 }
-.news__item-des a:hover{
-    color: #ed1c24 !important;
-}
-.main__pc{
+
+.content__ads{
     width: 315px;
+    border-left: 1px solid #f2f2f2;
+    padding-left: 15px;
+    margin-left: 15px;
+}
+.ads-image{
+    margin-top: 10px;
 }

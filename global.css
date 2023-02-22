@@ -1,0 +1,23 @@
+:root{
+  --header__top-color: linear-gradient(90.13deg,#e30e16 18.76%,#c90009 96.9%);
+  --top__lick-border: #ed1c24;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track { 
+  border-radius: 0.5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gainsboro; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c6d2da93; 
+}

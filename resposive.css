@@ -1,0 +1,13 @@
+@media (max-width: 1350px) {
+  .container {
+    width: 1200px !important;
+  }
+}
+@media (max-width: 768px) {
+  .content__list {
+    display:none !important;
+  }
+  .header__top .row>*{
+    justify-content: center;
+  }
+}
