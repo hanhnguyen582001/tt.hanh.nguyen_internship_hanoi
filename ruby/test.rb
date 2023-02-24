@@ -94,3 +94,4 @@ str[0] # tra ve chuoi co 1 ky tu o index 0
 str[-3] # tra ve chuoi ky tu co 1 ky tu la ky tu o index str.length-3
 str[0..3] # tra ve chuoi tu index 0 den index 3
 puts str['str'] # tra ve nil neu str ko chua 'str' co chua tra ve 'str'
+puts "%05d" % 123
