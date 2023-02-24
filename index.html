@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div class="wapper">
+    <div class="header">
+      <div class="header__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 header__top-left">
+              <img class="header__logo" loading="lazy" alt="Tin tức, tin nóng, đọc báo điện tử - Tuổi Trẻ Online"
+                src="https://static.mediacdn.vn/tuoitre/web_images/logottonew.png" />
+            </div>
+            <div class="col-md-9 header__top-right justify-content-end">
+              <div class="header__top-link d-flex">
+                <i class="fa-solid fa-microphone"></i>
+                <span>postcast</span>
+              </div>
+              <div class="header__top-link d-flex">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Cần biết</span>
+              </div>
+              <div class="header__top-link d-flex">
+                <i class="fa-solid fa-play"></i>
+                <span>youtube</span>
+              </div>
+              <div class="header__top-link d-flex">
+                <i class="fa-solid fa-box"></i>
+                <span>Rao vặt</span>
+              </div>
+              <div class="header__search">
+                <i class="fa-solid fa-magnifying-glass" style="color: white;"></i>
+              </div>
+              <div class="header__avatar">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="16" cy="13.3333" rx="4" ry="4" fill="white" stroke="white" stroke-width="2"
+                    stroke-linecap="round"></ellipse>
+                  <circle cx="16" cy="16" r="12" stroke="white" stroke-width="2"></circle>
+                  <path
+                    d="M23.7074 25.1019C23.8769 25.0088 23.957 24.8073 23.8854 24.6277C23.3712 23.3393 22.3808 22.2046 21.0419 21.3776C19.5955 20.4843 17.8232 20 16 20C14.1768 20 12.4046 20.4842 10.9581 21.3776C9.61925 22.2046 8.6288 23.3393 8.11464 24.6277C8.04298 24.8073 8.12314 25.0088 8.29264 25.1019C13.0929 27.7373 18.9071 27.7373 23.7074 25.1019Z"
+                    fill="white"></path>
+                </svg>
+              </div>
+              <button type="button" class="btn btn-primary btn-register">
+                dang ky tuoi tre sao
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__bottom">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="/" title="Trang chủ" class="nav-link home">
+              <i class="fa-solid fa-house" ></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="menu-nav navbar-nav">
+                <li class="active_menu"></li>
+                <li>
+                  <a title="Media" href="https://video.tuoitre.vn" class="nav-link">Media
+                  </a>
+                </li>
+                <li>
+                  <a title="Thời sự" href="/thoi-su.htm" class="nav-link">Thời sự
+                  </a>
+                </li>
+                <li>
+                  <a title="Thế giới" href="/the-gioi.htm" class="nav-link">Thế giới
+                  </a>
+                </li>
+                <li>
+                  <a title="Pháp luật" href="/phap-luat.htm" class="nav-link">Pháp luật
+                  </a>
+                </li>
+                <li>
+                  <a title="Kinh doanh" href="/kinh-doanh.htm" class="nav-link">Kinh doanh
+                  </a>
+                </li>
+                <li>
+                  <a title="Công nghệ" href="/cong-nghe.htm" class="nav-link">Công nghệ
+                  </a>
+                </li>
+                <li>
+                  <a title="Xe" href="/xe.htm" class="nav-link">Xe </a>
+                </li>
+                <li>
+                  <a title="Du lịch" href="/du-lich.htm" class="nav-link">Du lịch
+                  </a>
+                </li>
+                <li>
+                  <a title="Nhịp sống trẻ" href="/nhip-song-tre.htm" class="nav-link">Nhịp sống trẻ
+                  </a>
+                </li>
+                <li>
+                  <a href="/van-hoa.htm" title="Văn hóa" class="nav-link">Văn hóa
+                  </a>
+                </li>
+                <li>
+                  <a title="Giải trí" href="/giai-tri.htm" class="nav-link">Giải trí
+                  </a>
+                </li>
+                <li>
+                  <a title="Thể thao" href="/the-thao.htm" class="nav-link">Thể thao
+                  </a>
+                </li>
+                <li>
+                  <a title="Giáo dục" href="/giao-duc.htm" class="nav-link">Giáo dục
+                  </a>
+                </li>
+                <li>
+                  <a href="/nha-dat.htm" title="Nhà đất" class="nav-link">Nhà đất</a>
+                </li>
+
+                <li>
+                  <a title="Sức khỏe" href="/suc-khoe.htm" class="nav-link">Sức khỏe
+                  </a>
+                </li>
+                <li>
+                  <a title="Giả-thật" href="/gia-that.htm" class="nav-link">Giả thật
+                  </a>
+                </li>
+                <li>
+                  <a href="/ban-doc-lam-bao.htm" title="Bạn đọc" class="nav-link">Bạn đọc
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 content__list">
+            <div class="content__list-item wheather">
+              Thứ tư, ngày 22-02-2023
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+            <div class="content__list-item">
+              Vụ điều tra viên làm giả chữ ký: Nhiều cán bộ công an được triệu
+              tập không đến tòa
+            </div>
+          </div>
+          <div class="col-md-6 content__main">
+            <div class="main__news row">
+              <div class="col-xl-8 pr-2">
+                <img fetchpriority="high" data-type="avatar"
+                  src="https://cdn.tuoitre.vn/zoom/456_285/471584752817336320/2023/2/22/cc-co-giang-1-read-only-1677026160184419828709-83-0-1333-2000-crop-1677026209667882327684.jpg"
+                  alt="UBND TP.HCM sẽ có kết luận với 7 dự án bất động sản gặp vướng" class="box-category-avatar" />
+              </div>
+              <div class="col-xl-4">
+                <div class="main__news-title">
+                  UBND TP.HCM sẽ có kết luận với 7 dự án bất động sản gặp
+                  vướng
+                </div>
+                <div class="main__news-des">
+                  Ghi nhận của Tuổi Trẻ ngày 21-2 tại 7 dự án đang gặp vướng
+                  được UBND TP.HCM ưu tiên tháo gỡ, hiện các chủ đầu tư vẫn
+                  chưa thể tiếp tục xây dựng ...
+                </div>
+              </div>
+            </div>
+            <div class="news__related row">
+              <div class="col-4">
+                <img fetchpriority="high" data-type="avatar"
+                  src="https://cdn.tuoitre.vn/zoom/220_138/471584752817336320/2023/2/22/bai-thu-hat-nhan-novaya-zemlya-1677031389081459364363-0-0-638-1020-crop-16770314183331743915246.jpg"
+                  alt="Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của Nga trong tư thế sẵn sàng"
+                  class="box-category-avatar" />
+                <span class="news__related-title">Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của
+                  Nga trong tư thế sẵn sàng</span>
+              </div>
+              <div class="col-4">
+                <img fetchpriority="high" data-type="avatar"
+                  src="https://cdn.tuoitre.vn/zoom/220_138/471584752817336320/2023/2/22/bai-thu-hat-nhan-novaya-zemlya-1677031389081459364363-0-0-638-1020-crop-16770314183331743915246.jpg"
+                  alt="Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của Nga trong tư thế sẵn sàng"
+                  class="box-category-avatar" />
+                <span class="news__related-title">Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của
+                  Nga trong tư thế sẵn sàng</span>
+              </div>
+              <div class="col-4">
+                <img fetchpriority="high" data-type="avatar"
+                  src="https://cdn.tuoitre.vn/zoom/220_138/471584752817336320/2023/2/22/bai-thu-hat-nhan-novaya-zemlya-1677031389081459364363-0-0-638-1020-crop-16770314183331743915246.jpg"
+                  alt="Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của Nga trong tư thế sẵn sàng"
+                  class="box-category-avatar" />
+                <span class="news__related-title">Ông Putin yêu cầu bãi thử nghiệm hạt nhân Novaya Zemlya của
+                  Nga trong tư thế sẵn sàng</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 content__ads">
+            <div class="ads-image"><iframe
+                src="https://cdnstoremedia.com/adt/banners/nam2015/4043/min_html5/2023-02-16/manhnguyentien/300x250-2/300x250/300x250.html?url=%2F%2Flg1.logging.admicro.vn%2Fadn%3Fdmn%3Dhttps%253A%252F%252Ftuoitre.vn%252F%26rid%3D48a09232-8e1f-4e41-980f-64005443e485115-63f59c5d%26sspb%3D4560%26lsn%3D1677040723799%26dg%3Da35a93627acae9dd86d162aed0829589%26ce%3D1%26lc%3D4%26cr%3D1677040726%26ui%3D8877027443250147694%26uuid%3D%26bi%3D0%26cmpg%3D72741%26items%3D325811%26zid%3D474295%26pr%3D32646835854%26cid%3D-1%26tp%3D11%26tpn%3D4%26alg%3D1102%26dg%3Da35a93627acae9dd86d162aed0829589%26pgl%3D1%26xtr%3DeyJhc2lkIjo3MTY3fQ%253D%253D%26sspz%3D1543%26adc_cpa%3D1%26cov%3D1%26re%3Dhttps%253A%252F%252Fwww.nordangliaeducation.com%252Fvi%252Fbis-hanoi%252Fopen-day%253Futm_source%253Dadx%2526utm_medium%253Ddisplay%2526utm_campaign%253DAdX_display_open_day_march_2023_bis_hanoi&temp=0&loc=4&weath=&autoplay=0&admid=adnzone_474295_0_325811&vast=https%3A%2F%2Fsspapi.admicro.vn%2Fssp_request%2Fvideo%3Fu%3Dtuoitre.vn%252F%26z%3D474295%26p%3D1%26w%3D650%26h%3D300%26%26lsn%3D1677040723799%26dgid%3Da35a93627acae9dd86d162aed0829589%26l%3D4%26loc%3D4%26i%3D8877027443250147694%26isdetail%3D0%26pid%3D%26tags%3D5%26adstype%3D%26vtype%3D8%26vid%3D%26bannerid%3D325811"
+                alt="" style="width: 300px; height: 250px;"></div>
+            <div class="ads-image"><iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
