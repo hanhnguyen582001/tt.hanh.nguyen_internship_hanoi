@@ -792,6 +792,245 @@ puts b
 # Sum of squares, with initial_operand.
 (1..4).inject(2) {|sum, n| sum + n*n } # => 32
 puts (1..4).inject {|vol, n| vol*n } # => 24
+puts ({ "x" => 1, "y" => 2, "z" => 3 }.inject({}){ |hash, (k, v)| hash.merge( k.to_sym => v )  }) #=> {:x=>1, :y=>2, :z=>3}
 
 #detect
 puts (1..4).detect {|n| n>2} #=> 3
+
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Enumerable practice
+# Querying
+# These methods return information about the Enumerable other than the elements themselves:
+# include?, member?: Returns true if self == object, false otherwise.
+puts (1..10).include?(5) #=> true
+puts ({name: "hanh", age: 22}.include?(:name)) #=> true
+# all?: Returns true if all elements meet a specified criterion; false otherwise.
+puts (1..10).all? #=> true
+puts ({foo: 0, bar: 1, baz: 2}.all?(Array)) # => true
+puts ({foo: 0, bar: 1, baz: 2}.all?(Hash))  # => false
+{foo: 0, bar: 1, baz: 2}.all? {|key, value| value < 3 } # => true
+{foo: 0, bar: 1, baz: 2}.all? {|key, value| value < 2 } # => false
+# any?: Returns true if any element meets a specified criterion; false otherwise.
+puts [nil,1,nil].any? #=>true
+puts ({foo: 0, bar: 1, baz: 2}.any? {|key, value| value < 3 }) # => true
+puts [].any?(Integer)                     # => false
+# none?: Returns true if no element meets a specified criterion; false otherwise.
+puts [nil,false].none? #=> true
+puts [nil,1].none? #=> false
+# one?: Returns true if exactly one element meets a specified criterion; false otherwise.
+puts [nil,false].one? #=> false
+puts [nil,1].one? #=> true
+# count: Returns the count of elements, based on an argument or block criterion, if given.
+[0, 1, 2, 3].count {|element| element < 2}              # => 2
+{foo: 0, bar: 1, baz: 2}.count {|key, value| value < 2} # => 2
+# tally: Returns a new Hash containing the counts of occurrences of each element.
+puts %w[a b c b c a c b].tally
+# Fetching
+# These methods return entries from the Enumerable, without modifying it:
+# entries, to_a: Returns all elements.
+puts ({name: "hanh",age: 22}.to_a.inspect) #=> [[:name, "hanh"], [:age, 22]]
+# first: Returns the first element or leading elements.
+puts ({name: "hanh",age: 22}.first.inspect) #=> [:name, "hanh"]
+# take: Returns a specified number of leading elements.
+puts ({name: "hanh",age: 22}.take(1).inspect) #=> [[:name, "hanh"]]
+# drop: Returns a specified number of trailing elements.
+puts ({name: "hanh",age: 22}.drop(1).inspect) #=> [[:age, 22]]
+# take_while: Returns leading elements as specified by the given block.
+# puts ({name: "hanh",age: 22}.take_while{|el| k,v=*el; v < 23}) #=> [[:age, 22]]
+puts ({1=> "hanh",2=> 22}.take_while{|element| key, value = *element; key<2 }.inspect)
+# drop_while: Returns trailing elements as specified by the given block.
+puts ({1=> "hanh",2=> 22}.drop_while{|element| key, value = *element; key<2 }.inspect)
+# min: Returns the elements whose values are smallest among the elements, as determined by <=> or a given block.
+puts (1..10).min.inspect #=> 1
+puts (1..10).min(2) #=> [1,2]
+puts ({name: "hanh",age: 22}.min.inspect) #=> [:age, 22]
+# max: Returns the elements whose values are largest among the elements, as determined by <=> or a given block.
+puts (1..10).max.inspect
+puts (1..10).max(2)
+puts ({name: "hanh",age: 22}.max.inspect)
+# minmax: Returns a 2-element Array containing the smallest and largest elements.
+puts (1..10).minmax.inspect
+# min_by: Returns the smallest element, as determined by the given block.
+# max_by: Returns the largest element, as determined by the given block.
+# minmax_by: Returns the smallest and largest elements, as determined by the given block.
+# group_by: Returns a Hash that partitions the elements into groups.
+g = (1..6).group_by {|i| i%3 }
+g # => {1=>[1, 4], 2=>[2, 5], 0=>[3, 6]}
+h = {foo: 0, bar: 1, baz: 0, bat: 1}
+g = h.group_by {|key, value| value }
+g # => {0=>[[:foo, 0], [:baz, 0]], 1=>[[:bar, 1], [:bat, 1]]}
+# partition: Returns elements partitioned into two new Arrays, as determined by the given block.
+p = (1..4).partition {|i| i.even? }
+p # => [[2, 4], [1, 3]]
+h = {foo: 0, bar: 1, baz: 2, bat: 3}
+p = h.partition {|key, value| key.start_with?('b') }
+p # => [[[:bar, 1], [:baz, 2], [:bat, 3]], [[:foo, 0]]]
+# slice_after: Returns a new Enumerator whose entries are a partition of self, based either on a given object or a given block.
+# slice_before: Returns a new Enumerator whose entries are a partition of self, based either on a given object or a given block.
+# slice_when: Returns a new Enumerator whose entries are a partition of self based on the given block.
+# chunk: Returns elements organized into chunks as specified by the given block.
+# chunk_while: Returns elements organized into chunks as specified by the given block.
+
+
+# Filtering
+# These methods return elements that meet a specified criterion:
+# find, detect: Returns first element selected by the block.
+puts ["1",2,3,4,"hanh"].find.inspect #=> #<Enumerator: ["1", 2, 3, 4, "hanh"]:find>
+puts (1..9).find {|el| el>5} #=> 6
+puts ({name: "hanh",age: 22}.find.inspect)
+puts ({name: "hanh",age: 22}.find {|key,value| value == 22})
+# find_all, filter, select: Returns elements selected by the block.
+puts [1,2,3,4,5].find_all {|el| el<3||el>4}.inspect #=> [1, 2, 5]
+# find_index: Returns the index of first element selected by a given object or block.
+puts ({foo: 1, bar: 2, baz: 3}.find_index {|key, value| value > 1 })         # => 1
+# reject: Returns elements not rejected by the block.
+puts [1,2,3,4,5].reject {|el| el<3||el>4}.inspect #=> [3, 4]
+# uniq: Returns elements that are not duplicates. 
+puts ([1, 2, 3, 4, 5, 5, 4, 3, 2, 1].uniq {|i| i.even? ? i : 0}.inspect) # => [1, 2, 4]
+# Sorting
+# These methods return elements in sorted order:
+# sort: Returns the elements, sorted by <=> or the given block.
+puts ["hanh","hieu","dat"].sort.inspect #=> ["dat", "hanh", "hieu"]
+puts ["hanh","hieu","dat"].sort {|a,b| b<=>a}.inspect #=> ["hieu", "hanh", "dat"]
+puts ({name: "hanh",age: 22}.sort.inspect) #=> [[:age, 22], [:name, "hanh"]]
+# sort_by: Returns the elements, sorted by the given block.
+puts ({name: "hanh",age: 22}.sort_by {|key,value| key}.inspect) #=> [[:age, 22], [:name, "hanh"]]
+# Iterating
+# each_entry: Calls the block with each successive element (slightly different from each).
+# class Foo
+#     include Enumerable
+#     def each
+#       yield 1
+#       yield 1, 2
+#       yield
+#     end
+#   end
+#   Foo.new.each {|yielded| p yielded }
+# each_with_index: Calls the block with each successive element and its index.
+a=[]
+(1..10).each_with_index{|el,i| a.push([i,el])}
+p a
+# each_with_object: Calls the block with each successive element and a given object.
+puts ({name: "hanh",age: 22}.each_with_object({}) {|(k,v),h| h[v]=k}) #=> {"hanh"=>:name, 22=>:age}
+# each_slice: Calls the block with successive non-overlapping slices.
+{name: "hanh", age: 22, phone: "0886139065"}.each_slice(2) {|tuple| p tuple }
+# each_cons: Calls the block with successive overlapping slices. (different from each_slice).
+a = []
+(1..5).each_cons(3) {|element| a.push(element) }
+a # => [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+# reverse_each: Calls the block with each successive element, in reverse order.
+(1..10).reverse_each{|i| puts i}
+# map, collect: Returns objects returned by the block.
+(0..4).map {|i| i*i }                               # => [0, 1, 4, 9, 16]
+p ({name: "hanh", age: 22}.map{|key,value| [value,key]}.to_h)
+p (0..4).each_with_index.map{|el,i| [i,el]}.to_h
+# filter_map: Returns truthy objects returned by the block.
+p (0..10).filter_map{|el| el if el>5}
+p (0..10).filter{|el| el>5}
+p({name: "hanh", age: 22, phone_number: "0886139065"}.filter {|k,v| k>:age})
+p({name: "hanh", age: 22, phone_number: "0886139065"}.filter_map {|k,v| v if k>:age})
+# flat_map, collect_concat: Returns flattened objects returned by the block.
+[0, 1, 2, 3].flat_map {|element| -element }                    # => [0, -1, -2, -3]
+[0, 1, 2, 3].flat_map {|element| [element, -element] }         # => [0, 0, 1, -1, 2, -2, 3, -3]
+p ([[0, 1], [2, 3]].flat_map {|e| e })                     # => [0, 1, 100, 2, 3, 100]
+p({foo: 0, bar: 1, baz: 2}.flat_map {|key, value| [key, value,[100]] }) # => [:foo, 0, :bar, 1, :baz, 2]
+# grep: Returns elements selected by a given object or objects returned by a given block.
+a = ['foo', 'bar', 'car', 'moo']
+a.grep(/ar/)                   # => ["bar", "car"]
+(1..10).grep(3..8)             # => [3, 4, 5, 6, 7, 8]
+['a', 'b', 0, 1].grep(Integer) # => [0, 1]
+a = ['foo', 'bar', 'car', 'moo']
+a.grep(/ar/) {|element| element.upcase } # => ["BAR", "CAR"]
+# grep_v: Returns elements selected by a given object or objects returned by a given block.
+a = ['foo', 'bar', 'car', 'moo']
+a.grep(/ar/)                   # => ["foo", "moo"]
+(1..10).grep(3..8)             # => [1, 2, 9, 10]
+['a', 'b', 0, 1].grep(Integer) # => ["a", "b"]
+a = ['foo', 'bar', 'car', 'moo']
+a.grep(/ar/) {|element| element.upcase } # => ["BAR", "CAR"]
+# reduce, inject: Returns the object formed by combining all elements.
+puts ({ "x" => 1, "y" => 2, "z" => 3 }.inject({}){ |hash, (k, v)| hash.merge( v => k )  })
+# sum: Returns the sum of the elements, using method +.
+(1..100).sum          # => 5050
+(1..100).sum(1)       # => 5051
+('a'..'d').sum('foo') # => "fooabcd"
+p({first: 22, second: 30}.sum { |key,value| value})
+# zip: Combines each element with elements from other enumerables; returns the n-tuples or calls the block with each.
+# cycle: Calls the block with each element, cycling repeatedly.~
+a = []
+(1..4).cycle(3) {|element| a.push(element) } # => nil
+a # => [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+a = []
+('a'..'d').cycle(2) {|element| a.push(element) }
+a # => ["a", "b", "c", "d", "a", "b", "c", "d"]
+a = []
+{foo: 0, bar: 1, baz: 2}.cycle(2) {|element| a.push(element) }
+a # => [[:foo, 0], [:bar, 1], [:baz, 2], [:foo, 0], [:bar, 1], [:baz, 2]]
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Class practice
+class Person
+    def initialize(name,age,phone_number)
+        @name=name
+        @age=age
+        @phone_number=phone_number
+    end
+    def name
+        @name
+    end
+    def age
+        @age
+    end
+    def phone_number
+        @phone_number
+    end
+    def name=(name)
+        @name=name
+    end
+    def age=(age)
+        @age=age
+    end
+    def phone_number=(phone_number)
+        @phone_number=phone_number
+    end
+    def to_s
+        "My name is #{@name}, i'm #{@age} years old, my number is #{@phone_number}"
+    end
+end
+
+p1=Person.new("hanh",22,"0886139065")
+puts p1.to_s
+p1.name="hieu"
+puts p1.to_s
+
+class Person
+    attr_accessor :name,:age,:phone_number
+    def initialize(name,age,phone_number)
+        @name=name
+        @age=age
+        @phone_number=phone_number
+    end
+    def to_s
+        "My name is #{@name}, i'm #{@age} years old, my number is #{@phone_number}"
+    end
+    def self.name
+        "Person"
+    end
+    def
+end
+
+p1=Person.new("hanh",22,"0886139065")
+puts p1.to_s
+p1.name="hieu"
+puts p1.to_s
+puts Person.name
+
+class Employee<Person
+    attr_accessor :job 
+    def initialize(job)
+        @job=job
+    end
+end
+emp1=Employee.new("intern")
+puts emp1
