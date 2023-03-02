@@ -17,7 +17,7 @@ class Person
     # this is a class variable
     @@total=0
     def initialize(name,age,phone_number)
-        # there are instance variables. each instance has diff instance variable 
+        # there are instance variables. each instance has diff instance variable
         @name=name
         @age=age
         @phone_number=phone_number
@@ -36,7 +36,7 @@ end
 class Person1
     @@total=0
     def initialize(name,age,phone_number)
-        # there are instance variables. each instance has diff instance variable 
+        # there are instance variables. each instance has diff instance variable
         @name=name
         @age=age
         @phone_number=phone_number
@@ -81,7 +81,7 @@ puts str+str1+str2
 
 # string substitution
 str3=str1.sub('e','*')
-puts str3 # => 'h*re is a string created by using String::new.' this method return a new string 
+puts str3 # => 'h*re is a string created by using String::new.' this method return a new string
 str3=str1.gsub('e','*')
 puts str3 # => 'h*r* is a string cr*at*d by using String::new.'
 puts str1.sub!('e','*') # => 'h*re is a string created by using String::new.' this method modify self and return self
@@ -124,7 +124,7 @@ puts str.end_with?("he","ld") # =>'true' this method return true if any self end
 puts str.start_with?("wo","llo") # =>'false'
 
 #comparing
-puts str=="hello world" # => 'true' 
+puts str=="hello world" # => 'true'
 puts 2 == "2" # =>'false' a numerical string is not directly comparable to an integer value
 puts "hello"=="Hello" # => 'false'
 puts str.eql?('hello world')
@@ -172,7 +172,7 @@ employee={
     adress: {
         province: "nam dinh",
         district: "vu ban"
-    } 
+    }
 }
 puts employee[:adress][:district] # => 'vu ban'
 
@@ -277,7 +277,7 @@ phone = {:name => "iphone", "price" => 1000, :color => "white"}
 phone = {name: "iphone", "price" => 1000, color: "white"}
 puts phone # =>'{:name=>"iphone", "price"=>1000, :color=>"white"}'
 puts phone[:name] #=> "iphone"
-puts phone["price"] #=> "1000" 
+puts phone["price"] #=> "1000"
 puts phone.key("iphone") #=>"name" return key of value
 puts phone.keys.inspect() #=> '[:name, "price", :color]' return list of key
 puts phone.values.inspect() #=> '["iphone", 1000, "white"]' return a list of values
@@ -372,10 +372,10 @@ puts h1.value?(1) #=> true
 # arr practice
 numbers = [1,3,5,7]
 names = ["Nam", "Minh", "Long", "Viet"]
-mix= [1, 'one', :one, [2, 'two', :two]] 
+mix= [1, 'one', :one, [2, 'two', :two]]
 temp=[1,nil,2]
 puts mix.inspect() #=> [1, "one", :one, [2, "two", :two]]
-puts names[2] 
+puts names[2]
 names.push("hanh")
 names.insert(1,"hieu")
 
@@ -495,7 +495,7 @@ puts a.drop_while {|el| el<2} # => [ 0, 1]
 # same []
 # sort: Returns all elements in an order determined by <=> or a given block.
 a=[1,4,2,3,5]
-b=a.sort 
+b=a.sort
 puts b.inspect #=> [1, 2, 3, 4, 5]
 # reverse: Returns all elements in reverse order.
 a=[1,4,2,3,5]
@@ -663,7 +663,7 @@ end
 # cach 2
 def group_by_owners(files)
     f={}
-    files.each{|key,value| 
+    files.each{|key,value|
     if !f[value]
         f[value]=[]
     end
@@ -787,7 +787,7 @@ puts a
 puts (1..4).inject(:-) #=> -8
 # Sum of squares, without initial_operand.
 a=(1..4).to_a
-b=a.inject {|sum, n| sum + n*n } 
+b=a.inject {|sum, n| sum + n*n }
 puts b
 # Sum of squares, with initial_operand.
 (1..4).inject(2) {|sum, n| sum + n*n } # => 32
@@ -885,12 +885,7 @@ puts [1,2,3,4,5].find_all {|el| el<3||el>4}.inspect #=> [1, 2, 5]
 # find_index: Returns the index of first element selected by a given object or block.
 puts ({foo: 1, bar: 2, baz: 3}.find_index {|key, value| value > 1 })         # => 1
 # reject: Returns elements not rejected by the block.
-puts [1,2,3,4,5].reject {|el| el<3||el>4}.inspect #=> [3, 4]
-# uniq: Returns elements that are not duplicates. 
-puts ([1, 2, 3, 4, 5, 5, 4, 3, 2, 1].uniq {|i| i.even? ? i : 0}.inspect) # => [1, 2, 4]
-# Sorting
-# These methods return elements in sorted order:
-# sort: Returns the elements, sorted by <=> or the given block.
+puts [1,2,3,4,5].reject {|el| el<3||el>4}.inspeạ the given block.
 puts ["hanh","hieu","dat"].sort.inspect #=> ["dat", "hanh", "hieu"]
 puts ["hanh","hieu","dat"].sort {|a,b| b<=>a}.inspect #=> ["hieu", "hanh", "dat"]
 puts ({name: "hanh",age: 22}.sort.inspect) #=> [[:age, 22], [:name, "hanh"]]
@@ -969,68 +964,3 @@ a = []
 a # => [[:foo, 0], [:bar, 1], [:baz, 2], [:foo, 0], [:bar, 1], [:baz, 2]]
 
 # --------------------------------------------------------------------------------------------------------------------------------------
-# Class practice
-class Person
-    def initialize(name,age,phone_number)
-        @name=name
-        @age=age
-        @phone_number=phone_number
-    end
-    def name
-        @name
-    end
-    def age
-        @age
-    end
-    def phone_number
-        @phone_number
-    end
-    def name=(name)
-        @name=name
-    end
-    def age=(age)
-        @age=age
-    end
-    def phone_number=(phone_number)
-        @phone_number=phone_number
-    end
-    def to_s
-        "My name is #{@name}, i'm #{@age} years old, my number is #{@phone_number}"
-    end
-end
-
-p1=Person.new("hanh",22,"0886139065")
-puts p1.to_s
-p1.name="hieu"
-puts p1.to_s
-
-class Person
-    attr_accessor :name,:age,:phone_number
-    def initialize(name,age,phone_number)
-        @name=name
-        @age=age
-        @phone_number=phone_number
-    end
-    def to_s
-        "My name is #{@name}, i'm #{@age} years old, my number is #{@phone_number}"
-    end
-    def self.name
-        "Person"
-    end
-    def
-end
-
-p1=Person.new("hanh",22,"0886139065")
-puts p1.to_s
-p1.name="hieu"
-puts p1.to_s
-puts Person.name
-
-class Employee<Person
-    attr_accessor :job 
-    def initialize(job)
-        @job=job
-    end
-end
-emp1=Employee.new("intern")
-puts emp1
