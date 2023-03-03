@@ -209,9 +209,10 @@ end
 #Block, Proc and Lambda
 #my_each,my_each_with_index,my_map
 class Array
-  def my_each
+  def my_each(&block)
     for element in self
-      yield(element)
+      puts yield(element)
+      # puts block.call(element)
     end
     self
   end
@@ -230,10 +231,6 @@ class Array
     return arr
   end
 end
-[1,2,3,4,5].my_each {|i| puts i}
+[1,2,3,4,5].my_each {|element| puts element}
 [1,2,3,4,5].my_each_with_index{|el,i| puts [i,el].inspect}
 puts [1,2,3,4,5].my_map {|el| el*2}.inspect
-
-
-# --------------------------------------------------------------------------------------------------------------------------------------
-#File I/O
