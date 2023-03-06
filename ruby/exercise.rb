@@ -100,7 +100,7 @@ class Diamond
     sub_string="*"*leng_of_sub+"\n"
     super_string=[sub_string]*leng_of_super
     for i in ('A'..char)
-      super_string[i.ord-'A'.ord][]
+      puts i.ord-'A'.or
     end
     return super_string
   end
