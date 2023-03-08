@@ -341,3 +341,21 @@ class Bob
   end
 end
 p Bob.hey("You are, what, like 15?")
+class Upcaser
+  def initialize(value)
+    @value = value
+  end
+
+  def +(other)
+    self.class.new(@value + other.value)
+  end
+
+  def to_s
+    @value.upcase
+  end
+
+  attr_reader :value
+  protected :value
+end
+
+puts Upcaser.new("Hello") + Upcaser.new("World")
