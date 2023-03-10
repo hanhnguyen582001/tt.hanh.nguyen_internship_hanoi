@@ -15,8 +15,74 @@ CHAPTER 1:
 	MVC
 5.Version control system:
 	github
+
 CHAPTER 2:
 1. rails scaffold:
-	command:
-		rails generate scaffold User name:string email:string
-		rails db:migrate
+	rails generate scaffold User name:string email:string
+2. migrate database:
+	rails db:migrate
+3. Create user by scaffold:
+	rails generate scaffold User name:string email:string
+	list pages for suser:
+		/users index page to list all users
+		/users/1 show page to show user with id 1
+		/users/new new page to make a new user
+		/users/1/edit edit page to edit user with id 1
+4. restful routes provided by the user resources
+	HTTP request URL Action Purpose
+	GET /users index page to list all users
+	GET /users/1 show page to show user with id 1
+	GET /users/new new page to make a new user
+	POST /users create create a new user
+	GET /users/1/edit edit page to edit user with id 1
+	PATCH /users/1 update update user with id 1
+	DELETE /users/1 destroy delete user with id 1
+5. By referring to Figure 2.11, write out the analogous steps for visiting the
+URL /users/1/edit.
+	-The browser issues a request for the /user/1/edit URL.
+	-Rails routes /user/1/edit to the edit action in Users controler with user_id=1
+	-the edit action call set_user method,set_user asks the the user model to retrive information of user 1
+	-the user model pulls user 1 from database.
+	-the User model returns user 1 to the controller
+	-the controller captures the user has user_id=1 in the @user variable
+	,which is passed to the view the view uses embedded ruby to render the page as html
+	-the controller passes the html back to the browser.
+6. Weaknesses of scaffold Users resource:
+	-No data validation
+	-No authentication
+	-No tests
+	-No style or layout
+	-No real understanding
+7. associations between different data models
+	-has_many
+	-belong_to
+8.Validate
+	-validate :attribute, length: {maximum: 140}, presence:true
+	-length {maximum: 140} max length of attribute
+	-presence: cant blank
+9.What we learned in this chapter
+	• Scaffolding automatically creates code to model data and interact with it
+	through the web.
+	• Scaffolding is good for getting started quickly but is bad for understanding.
+	• Rails uses the Model-View-Controller (MVC) pattern for structuring web
+	applications.
+	• As interpreted by Rails, the REST architecture includes a standard set of
+	URLs and controller actions for interacting with data models.
+	• Rails supports data validations to place constraints on the values of data
+	model attributes.
+	• Rails comes with built-in functions for defining associations between different data models.
+	• We can interact with Rails applications at the command line using the
+	Rails console.
+
+CHAPTER 3
+1.rails command shortcut
+	$ rails server 			$ rails s
+	$ rails console 		$ rails c
+	$ rails generate 		$ rails g
+	$ rails test 				$ rails t
+	$ bundle install 		$ bundle
+2.undo in Rails
+	$ rails generate controller StaticPages home help			$ rails destroy controller StaticPages home help
+	$ rails generate model User name:string email:string  $ rails destroy model User
+	$ rails db:migrate			$ rails db:rollback			$ rails db:migrate VERSION=0
+3.
