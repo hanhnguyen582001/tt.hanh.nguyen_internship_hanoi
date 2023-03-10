@@ -1,0 +1,22 @@
+CHAPTER 1:
+1.rails command creates:
+  rails new hello_app
+2.Bundles:
+	file: gemfile
+	constructure: gem 'webpacker', '~> 4.0'
+	command:
+		bundle update
+		bundle install
+		bundle install --without production
+3.run app:
+	rails server
+	default adress: http://localhost:3000
+4.architectural pattern:
+	MVC
+5.Version control system:
+	github
+CHAPTER 2:
+1. rails scaffold:
+	command:
+		rails generate scaffold User name:string email:string
+		rails db:migrate
