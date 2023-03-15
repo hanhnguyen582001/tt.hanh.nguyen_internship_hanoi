@@ -186,3 +186,52 @@ CHAPTER 6:Model
 			around_destroy
 			after_destroy
 			after_commit / after_rollback
+CHAPTER 7
+	params:
+		params is a method on the ActionController::StrongParameter class.
+		While params appears to be a hash, it is actually an instance of the ActionController::Parameters class.
+		params has information of request from client
+		permit the attributes in params:
+			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	rails environment:
+		rails has 3 environment:
+			production
+			test
+			development
+		default environment:development
+	degugger:
+		gem: byebug
+		add bebugger in action of controller to debug
+	form helper:
+		The main form helper is: form_with
+			<%= form_with do |f| %>
+  			.
+				.
+				.
+			<% end %>
+		Binding a Form to an Object:
+			<%= form_with(model: @user) do |f| %>
+				<%= render 'shared/error_messages' %>
+				<%= f.label :name, "name" %>
+				<%= f.text_field :name %>
+				<%= f.label :email, "email" %>
+				<%= f.email_field :email %>
+				<%= f.label :password, "password" %>
+				<%= f.password_field :password %>
+				<%= f.label :password_confirmation, "Confirmation" %>
+				<%= f.password_field :password_confirmation %>
+				<%= f.submit "create my account",class: "btn btn-primary" %>
+			<% end %>
+	error messages:
+		@user.error is an arrays of error
+		@user.errors.full_messages is an array of error messages
+		example:
+			>> user = User.new(name: "Foo Bar", email: "foo@invalid",password: "dude", password_confirmation: "dude")
+			>> user.save
+			=> false
+			>> user.errors.full_messages
+			=> ["Email is invalid", "Password is too short (minimum is 6 characters)"]
+	The flash:
+	The Rails way to display a temporary message is to use a special method	called the flash, which we can treat like a hash.
+		flash[:success] = "Welcome to the Sample App!"
+		 {:success=>"Welcome to the Sample App!"}
