@@ -92,3 +92,146 @@ CHAPTER 3
 5.Test-driven development uses a “Red, Green, Refactor” cycle
 	rails test
 6.Rails layouts allow the use of a common template for pages in our application, thereby eliminating duplication
+CHAPTER 4
+• Ruby has a large number of methods for manipulating strings of characters.
+• Everything in Ruby is an object.
+• Ruby supports method definition via the def keyword.
+• Ruby supports class definition via the class keyword.
+• Rails views can contain static HTML or embedded Ruby (ERb).
+• Built-in Ruby data structures include arrays, ranges, and hashes.
+• Ruby blocks are a flexible construct that (among other things) allow natural iteration over enumerable data structures.
+• Symbols are labels, like strings without any additional structure.
+• Ruby supports object inheritance.
+• It is possible to open up and modify built-in Ruby classes.
+CHAPTER 5
+	-add boostrap in project:
+		add "gem 'boostrap-sass'" in gemfile
+		add "@import "bootstrap-sprockets"; @import "bootstrap";" in application.scss
+	-method link_to:
+		<%= link_to "text",link%>
+	-patial view
+		name:_patial_name.html.erb
+		<%=render 'layouts/patial_name'%>
+		<%= render partial: "form", object: @user, as: "user" %>
+		<%= render @users %>
+	-custom routes:
+		get "home", to: "static_pages#home"
+		named route: home_path
+	-generate a integration test:
+		rails generate integration_test site_layout
+Representational state transfer (REST) is a software architectural style that describes the architecture of the Web. It was derived from the following constraints:
+	-client-server communication
+	-stateless communication
+	-caching
+	-uniform interface
+	-layered system
+	-code on demand
+	-The uniform interface itself creates four interface constraints:
+		Identification of resources
+		Manipulation of resources through representations
+		Self-descriptive messages
+		Hypermedia as the engine of application state (HATEOAS)
+CHAPTER 6:Model
+	create a user model:
+		rails generate model Users name:string email:string
+	migrate table in database:
+		rails db:migrate
+	create a row in user table:
+		-user=User.new(name: "hanh",email: "tt.hanh.nguyen1@tomosia.com")
+		 user.save
+		-user=User.create(name: "hanh",email: "tt.hanh.nguyen1@tomosia.com")
+	delete a row in user table:
+		-user.detroy(, the destroyed object still exists in memory)
+	finding user objects
+		User.find(2)
+		User.find_by(email:"tt.hanh.nguyen@tomosia.com")
+		User.first
+		User.all
+	Updating user objects
+		user=User.find(1)
+		user.email="hanh@gmail.com"
+		user.save (the final step is necessary to write the changes to the database)
+		user.update(name: "The Dude", email: "dude@abides.org")
+		update_attribute skipping the validations:
+		user.update_attribute(:name,"hanh nguyen")
+	Add a secure password:
+		rails generate migration add_password_digest_to_users password_digest:string
+		migrate database: rails db:migrate
+		add bcrypt gem: gem "bcrypt"
+		add has_secure_password to User model
+		add: validates :password, presence: true, length: {minimum: 6}
+	object life cycle:
+		-create
+			before_validation
+			after_validation
+			before_save
+			around_save
+			before_create
+			around_create
+			after_create
+			after_save
+			after_commit / after_rollback
+		-update
+			before_validation
+			after_validation
+			before_save
+			around_save
+			before_update
+			around_update
+			after_update
+			after_save
+			after_commit / after_rollback
+		-destroy
+			before_destroy
+			around_destroy
+			after_destroy
+			after_commit / after_rollback
+CHAPTER 7
+	params:
+		params is a method on the ActionController::StrongParameter class.
+		While params appears to be a hash, it is actually an instance of the ActionController::Parameters class.
+		params has information of request from client
+		permit the attributes in params:
+			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	rails environment:
+		rails has 3 environment:
+			production
+			test
+			development
+		default environment:development
+	degugger:
+		gem: byebug
+		add bebugger in action of controller to debug
+	form helper:
+		The main form helper is: form_with
+			<%= form_with do |f| %>
+  			.
+				.
+				.
+			<% end %>
+		Binding a Form to an Object:
+			<%= form_with(model: @user) do |f| %>
+				<%= render 'shared/error_messages' %>
+				<%= f.label :name, "name" %>
+				<%= f.text_field :name %>
+				<%= f.label :email, "email" %>
+				<%= f.email_field :email %>
+				<%= f.label :password, "password" %>
+				<%= f.password_field :password %>
+				<%= f.label :password_confirmation, "Confirmation" %>
+				<%= f.password_field :password_confirmation %>
+				<%= f.submit "create my account",class: "btn btn-primary" %>
+			<% end %>
+	error messages:
+		@user.error is an arrays of error
+		@user.errors.full_messages is an array of error messages
+		example:
+			>> user = User.new(name: "Foo Bar", email: "foo@invalid",password: "dude", password_confirmation: "dude")
+			>> user.save
+			=> false
+			>> user.errors.full_messages
+			=> ["Email is invalid", "Password is too short (minimum is 6 characters)"]
+	The flash:
+	The Rails way to display a temporary message is to use a special method	called the flash, which we can treat like a hash.
+		flash[:success] = "Welcome to the Sample App!"
+		 {:success=>"Welcome to the Sample App!"}
