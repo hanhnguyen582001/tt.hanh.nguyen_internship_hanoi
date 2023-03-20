@@ -14,12 +14,12 @@ default: &default
 
 development:
   <<: *default
-  database: sample_app_development
-  
+  database: hello_app_development
+
 test:
   <<: *default
-  database: sample_app_test
-  
+  database: hello_app_test
+
 production:
   <<: *default
   database: sample_app_production

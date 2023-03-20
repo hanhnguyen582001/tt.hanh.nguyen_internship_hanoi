@@ -47,7 +47,6 @@ gem "sass-rails"
 
 gem "mysql2"
 
-gem "webpacker"
 
 gem "bootstrap-sass"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
