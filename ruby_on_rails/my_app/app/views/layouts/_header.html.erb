@@ -14,17 +14,16 @@
         </li>
         <% if logged_in? %>
           <li class="nav-item">
-            <%= link_to "Users", '#',class: "nav-link text-light" %>
+            <%= link_to "Users", users_url,class: "nav-link text-light" %>
           </li>
           <li class="nav-item dropdown">
             <%= link_to "Account", '#', class: "nav-link dropdown-toggle text-light", role: "button", :"data-bs-toggle" => "dropdown", :"aria-expanded" => "false"%>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
               <li><%= link_to "Profile", '#', class: "dropdown-item" %></li>
-              <li><%= link_to "Settings", '#', class: "dropdown-item" %></li>
+              <li><%= link_to "Settings", edit_user_url(current_user), class: "dropdown-item" %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out", "#", method: :delete, class: "dropdown-item"  %>
+                <%= link_to "Log out",logout_path, method: :delete, class: "dropdown-item"  %>
               </li>
             </ul>
           </li>

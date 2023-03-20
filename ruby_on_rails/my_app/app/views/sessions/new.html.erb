@@ -15,6 +15,12 @@
         <div class="mb-3">
           <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
+        <div class="mb-3">
+          <%= f.label :remember_me do %>
+            <%= f.check_box :remember_me, class: "w-auto"%>
+            <%= f.label :remember_me, "Remember me on this computer" %>
+          <% end %>
+        </div>
       <% end %>
       <p>New user? <%= link_to "Sign up now!", signup_path %></p>
     </div>

@@ -1,5 +1,5 @@
-<% provide(:title, 'Update')  %>
-<h1>Sign up</h1>
+<% provide(:title, 'Edit user')  %>
+<h1>Update your profile</h1>
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <%= form_with(model: @user,data: { turbo: false },local: true) do |f| %>
@@ -29,8 +29,12 @@
         <%= f.password_field :password_confirmation %>
       </div>
       <div class="mb-3">
-        <%= f.submit "create my account",class: "btn btn-primary" %>
+        <%= f.submit "save changes",class: "btn btn-primary" %>
       </div>
     <% end %>
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="https://gravatar.com/emails" target="_blank">change</a>
+    </div>
   </div>
 </div>
