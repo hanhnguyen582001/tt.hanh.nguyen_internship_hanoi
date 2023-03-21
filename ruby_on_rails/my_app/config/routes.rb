@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get '/home', to: 'my_static_pages#home'
   get '/about', to: 'my_static_pages#about'
   get '/help', to: 'my_static_pages#help'
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :account_activations, only: [:edit]
+  resources :password_resets, only: %i[new create edit update]
+  resources :microposts, only: %i[create destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
