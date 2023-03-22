@@ -16,7 +16,7 @@ class PasswordResetsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = 'Email address not found'
-      render 'new'
+      render 'new', status_code: :not_found
     end
   end
 
@@ -25,13 +25,13 @@ class PasswordResetsController < ApplicationController
   def update
     if params[:user][:password].empty?
       @user.errors.add(:password, 'cant be empty')
-      render 'edit'
+      render 'edit', status_code: :unprocessable_entity
     elsif @user.update(user_params)
       log_in(@user)
       flash[:success] = 'password has been reset'
       redirect_to root_path
     else
-      render 'edit'
+      render 'edit', status_code: :unprocessable_entity
     end
   end
 

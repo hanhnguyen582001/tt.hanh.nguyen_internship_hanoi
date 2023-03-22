@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       flash[:success] = 'Micropost created!'
       redirect_to root_url
     else
-      render 'my_static_pages/home'
+      render 'my_static_pages/home', status_code: :unprocessable_entity
     end
   end
 

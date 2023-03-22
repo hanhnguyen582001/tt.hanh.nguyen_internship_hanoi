@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:info] = 'Please check your email to activate your account.'
       redirect_to root_url
     else
-      render :new
+      render :new, status_code: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       flash[:success] = 'update sussess'
       redirect_to @user
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -44,6 +44,20 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
     redirect_to users_url
+  end
+
+  def following
+    @title = 'Following'
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page], per_page: 10)
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page], per_page: 10)
+    render 'show_follow'
   end
 
   private

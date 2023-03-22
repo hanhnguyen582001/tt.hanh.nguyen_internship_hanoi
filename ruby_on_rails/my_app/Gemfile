@@ -80,7 +80,7 @@ gem 'sassc-rails'
 
 gem 'mysql2'
 
-gem "jquery-rails"
+gem 'jquery-rails'
 
 gem 'faker'
 

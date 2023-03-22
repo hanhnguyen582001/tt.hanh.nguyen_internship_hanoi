@@ -9,6 +9,13 @@
     </section>
   </aside>
   <div class="col-md-8">
+    <% if logged_in? && !current_user?(@user) %>
+      <% unless(current_user.following?(@user)) %>
+        <%= render 'follow' %>
+      <% else %>
+        <%= render 'unfollow' %>
+      <% end %>
+    <% end %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
