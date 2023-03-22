@@ -235,3 +235,5 @@ CHAPTER 7
 	The Rails way to display a temporary message is to use a special method	called the flash, which we can treat like a hash.
 		flash[:success] = "Welcome to the Sample App!"
 		 {:success=>"Welcome to the Sample App!"}
+
+#<ActionController::Parameters {"email"=>"tt.hanh.nguyen1@tomosia.com", "controller"=>"password_resets", "action"=>"edit", "id"=>"_zMrqfMTELM1Q23kRx91Jw"} permitted: false>
