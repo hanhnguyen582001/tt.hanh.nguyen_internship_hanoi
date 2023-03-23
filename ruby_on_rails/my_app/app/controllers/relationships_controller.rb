@@ -10,4 +10,11 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(user)
     redirect_to user
   end
+
+  private
+
+  def handle_error
+    flash[:warning] = 'something went wrong'
+    redirect_to root_path
+  end
 end
