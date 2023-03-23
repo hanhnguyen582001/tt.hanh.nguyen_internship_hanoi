@@ -30,4 +30,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    update_success: update success.
+    check_email: Please check your email to activate your account.
+    delete_success: User deleted.
+    delete_fail: can not delete this user
+  title_pages:
+    follower: Follower
+    following: Following
+    home: Home
+    help: Help
+    contact: contact
+    update: update
+    users: All users
+    signup: Sign up
+  login_warning: Please login.
