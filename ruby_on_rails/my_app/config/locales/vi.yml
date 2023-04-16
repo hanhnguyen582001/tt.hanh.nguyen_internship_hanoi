@@ -1,0 +1,10 @@
+vi:
+  time:
+    formats:
+      long: "%d-%m-%Y %H:%M:%S"
+  active_admin:
+    web_title: Trang admin
+    user: Người dùng
+    microposts: Micropost
+    micropost: Micropost
+    admin_user: Quản trị viên
