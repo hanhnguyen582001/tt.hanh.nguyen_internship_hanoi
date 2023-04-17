@@ -8,3 +8,11 @@ vi:
     microposts: Micropost
     micropost: Micropost
     admin_user: Quản trị viên
+    user_page:
+      label:
+        name: Tên
+        follower: Được theo dõi
+        following: Đang theo dõi
+        role: Quyền
+    action:
+      microposts: Danh sách bài viết
