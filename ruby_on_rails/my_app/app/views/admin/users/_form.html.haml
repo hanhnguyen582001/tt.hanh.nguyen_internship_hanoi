@@ -1,0 +1,11 @@
+= semantic_form_for [:admin,@user],builder: ActiveAdmin::FormBuilder do |f|
+  
+  = f.inputs 'user information' do
+    = f.input :email
+    = f.input :name
+    = f.input :password
+    = f.input :password_confirmation
+  = f.inputs 'microposts' do
+    - f.has_many :microposts, heading: 'posts', allow_destroy: true do |a|
+      - a.input :content
+  = f.actions

@@ -4,10 +4,13 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  accepts_nested_attributes_for :microposts, allow_destroy: true
 
+  enum activated: { activated: true, unactivated: false }
 
   before_save { self.email = email.downcase }
   before_create :create_activation_digest
+  after_save { $redis.del 'users' }
   # after_validation { puts 2 }
   # before_validation { puts 1 }
   # after_save { puts 8 }
@@ -33,7 +36,7 @@ class User < ApplicationRecord
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+    BCrypt::Password.create(string, cost:)
   end
 
   def self.new_token
