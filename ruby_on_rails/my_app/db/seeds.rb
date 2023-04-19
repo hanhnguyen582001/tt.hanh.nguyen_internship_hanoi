@@ -10,14 +10,14 @@ User.create!(name: 'Nguyen The Hanh',
              email: 'hanhkaka582001@gmail.com',
              password: 'hanh9898',
              password_confirmation: 'hanh9898',
-             admin: true,
+             admin: 1,
              activated: true,
              activated_at: Time.zone.now)
 User.create!(name: 'Hanh Nguyen The',
              email: 'tt.hanh.nguyen1@tomosia.com',
              password: 'hanh9898',
              password_confirmation: 'hanh9898',
-             admin: true,
+             admin: 1,
              activated: true,
              activated_at: Time.zone.now)
 # Generate a bunch of additional users.
@@ -29,6 +29,7 @@ User.create!(name: 'Hanh Nguyen The',
                email: email,
                password: password,
                password_confirmation: password,
+               admin: 0,
                activated: true,
                activated_at: Time.zone.now)
 end

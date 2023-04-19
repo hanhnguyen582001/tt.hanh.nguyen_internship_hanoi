@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_193914) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"

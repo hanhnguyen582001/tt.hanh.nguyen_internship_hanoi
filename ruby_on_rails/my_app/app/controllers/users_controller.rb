@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page], per_page: 10)
+    @users = fetch_users.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -78,5 +78,15 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  def fetch_users()
+    users = $redis.get('users')
+    if users.blank?
+      users = User.all.to_json
+      $redis.set('users', users)
+      $redis.expire('user', 3.hour.to_i)
+    end
+    JSON.load users
   end
 end
